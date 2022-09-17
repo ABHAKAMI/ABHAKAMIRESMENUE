@@ -1,0 +1,250 @@
+Public Class Form1
+
+
+
+    Dim dblPrincipal As Object
+
+    Dim Array As String
+
+    Dim Principal As Object
+
+
+
+    Private Property dblAnnualRate As Object
+
+
+
+    Private Property dblNEW_RATE As Object
+
+
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+        ' Class-level constants
+
+        Const dblMONTHS_Year As Double = 12        'Months per year
+
+        Const dblNEW_RATE As Double = 0.089        'Interest rate , new cars
+
+        Const dblUSED_RATE As Double = 0.095       'Interest rate , used cars
+
+
+
+        ' Class level varibale to hold the annual interest rate AND...
+
+        Dim AnnualRate As Double = dblNEW_RATE
+
+        Dim mnthyear As Double = dblMONTHS_Year
+
+        Dim usedrate As Double = dblUSED_RATE
+
+
+
+
+    End Sub
+
+
+
+
+
+    Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
+
+
+
+    End Sub
+
+    Private Async Function DoSomethingAsync() As Task
+
+        Dim delayTask As Task(Of Integer) = DelayAsync()
+
+        Dim result As Integer = Await delayTask
+
+
+
+
+
+        Dim dblVehicleCost As Double       ' Vehicle Cost
+
+        Dim dblDownPayment As Double        ' Down Payment
+
+        Dim intMonths As Integer            ' Number of months for the lone
+
+        Dim dblLone As Double               ' Amount of the lone
+
+        Dim dblMonthlyPayment As Double     ' Monthly Payment
+
+        Dim dblInterest As Double           ' Interest paid for the period
+
+        Dim dblInterestIn As Double         ' Principal paid for the period
+
+        Dim intCount As Integer             ' Counter for the loop
+
+        Dim strOut As String                ' Used to hold a line of output
+
+        Dim dblAnnualRate As Double
+
+        Dim dblLoan As Double
+
+        Dim dblMONTHS_YEAR As Double
+
+        Dim dblPrincipal As Double
+
+
+
+        ' Get the vehicle cost.
+
+        If Double.TryParse(txtCost.Text, dblVehicleCost) Then
+
+
+
+            ' Get the down payment.
+
+            If Double.TryParse(txtDownPayment.Text, dblDownPayment) Then
+
+
+
+                ' Get the number of months.
+
+                If Integer.TryParse(txtMonths.Text, intMonths) Then
+
+
+
+                    ' Calulate the amount of the lone
+
+                    dblLone = (dblVehicleCost - dblDownPayment)
+
+
+
+                    ' Calculate the monthly payments
+
+                    dblMonthlyPayment = Pmt(dblAnnualRate / dblMONTHS_YEAR, intMonths, -dblLoan)
+
+                    ' Clear the list box
+
+                    L1stOutput.Items.Clear()
+
+
+
+                    For intCount = 1 To intMonths
+
+
+
+                    Next
+
+                    ' Calculate the interest for the period.
+
+                    dblInterest = Pmt(dblAnnualRate / dblMONTHS_YEAR, intCount, intMonths, -dblLoan)
+
+
+
+                    ' Start building the output string with the month.
+
+                    strOut = "Month: " & intCount.ToString()
+
+
+
+                    ' And the payment amount to the output string.
+
+                    strOut &= "Payment: " & dblPrincipal.ToString("c")
+
+
+
+                    ' Add the interest amount to the output string.
+
+                    strOut &= "Interest: " & dblInterestIn.ToString("c")
+
+
+
+                    ' Add the principle for the period.
+
+                    strOut &= Principal.ToString(CInt("c"))
+
+
+
+                    ' Add the output string to the list box.
+
+                    L1stOutput.Items.Add(strOut)
+
+
+
+                    ' Error message for invalid months.
+
+                    MessageBox.Show("Enter a integer for months.")
+
+                End If
+
+            Else
+
+                ' Error message for an invalid down payment.
+
+                MessageBox.Show("Enter a numeric value for the down payment")
+
+            End If
+
+        Else
+
+            ' Error message for invalid vehicle cost.
+
+            MessageBox.Show("Enter a numeric value for the vehicle cost")
+
+        End If
+
+    End Function
+
+
+
+
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+
+        ' Reset the interst rate, clear the text boxs.
+
+        ' and clear the list box. Set default interest
+
+        ' rate for new car loans.
+
+
+
+        radNew.Checked = True
+
+        lblLable = CType(dblNEW_RATE, Label)
+
+
+
+        txtCost.Clear()
+
+        txtDownPayment.Clear()
+
+        txtMonths.Clear()
+
+        L1stOutput.Items.Clear()
+
+
+
+        ' Reset the focus to txtCost.
+
+        txtCost.Focus()
+
+    End Sub
+
+
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+
+        ' Close the form.
+
+        Me.Close()
+
+    End Sub
+
+
+
+    Private Function DelayAsync() As Task(Of Integer)
+
+        Throw New NotImplementedException
+
+    End Function
+
+
+
+End Class
