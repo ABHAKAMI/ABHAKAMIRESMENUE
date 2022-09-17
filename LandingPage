@@ -1,0 +1,31 @@
+Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MessageBox.Show("Welcome to KAU")
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        TextBox1.Clear()
+        TextBox2.Clear()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim strname As String
+        Dim intpassword As Integer
+
+        strname = CStr(TextBox1.Text)
+
+        intpassword = CInt(TextBox2.Text)
+
+        If strname = "Abdullah" Then
+            If intpassword = 123321 Then
+                MessageBox.Show("seccfull log-in")
+            Else
+                MessageBox.Show("wrong input ")
+            End If
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Close()
+    End Sub
+End Class
