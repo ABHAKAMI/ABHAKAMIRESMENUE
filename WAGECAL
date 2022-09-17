@@ -1,0 +1,32 @@
+Public Class Form1
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Me.Close()
+    End Sub
+
+    Private Sub btnCalcGrossPay_Click(sender As Object, e As EventArgs) Handles btnCalcGrossPay.Click
+
+        Dim dblhoursWorked As Double
+        Dim dblPayrates As Double
+        Dim dblGrossPay As Double
+
+        dblhoursWorked = CDbl(txtHoursWorked.Text)
+        dblPayrates = CDbl(txtPayRate.Text)
+
+        dblGrossPay = dblhoursWorked * dblPayrates
+
+        lblGrossPay.Text = dblGrossPay.ToString("c")
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MessageBox.Show("Welcome")
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        MessageBox.Show("dose not incloud taxes")
+    End Sub
+
+    Private Sub Form1(sender As Object, e As EventArgs) Handles MyBase.Load
+        MessageBox.Show("welcome")
+    End Sub
+End Class
