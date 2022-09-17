@@ -1,0 +1,59 @@
+Public Class Form1
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim dblKilometer As Double
+        Dim dblMeterDistance As Double
+
+        dblKilometer = CDbl(txtKilometer.Text)
+
+        dblMeterDistance = dblKilometer * 1000
+
+        lblMeterDistance.Text = dblMeterDistance
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim dblthesquareside As Double
+        Dim dblTheArea As Double
+
+        dblthesquareside = CDbl(txtTSS.Text)
+
+        dblTheArea = Math.Pow(dblthesquareside, 2)
+
+        lblTheArea.Text = dblTheArea
+
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim intTIC As Integer
+        Dim intTIF As Integer
+
+        intTIC = CInt(txtTIC.Text)
+
+        intTIF = intTIC * 1.8 + 32
+
+        lblTIF.Text = intTIF & ("°")
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim dblSpeed As Double
+        Dim dblTime As Double
+        Dim dblTheDistance As Double
+
+        dblSpeed = CDbl(txtSpeed.Text)
+
+        dblTime = CDbl(txtTime.Text)
+
+        dblTheDistance = dblSpeed * dblTime
+
+        lblTheDistance.Text = dblTheDistance
+
+
+
+
+
+
+
+    End Sub
+End Class
