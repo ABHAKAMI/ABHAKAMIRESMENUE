@@ -1,0 +1,80 @@
+Public Class Form1
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub BtnCalculateCharges_Click(sender As Object, e As EventArgs) Handles BtnCalculateCharges.Click
+        Dim intNight As Integer
+        Dim dblNightlycharge As Double
+        Dim dblRoomServiesCharge As Double
+        Dim dbltelephoneCharhe As Double
+        Dim dblMicsCharge As Double
+        Const Tax_Rate As Double = 0.1
+        Dim dblRoomchrages As Double
+        Dim dblAddChrages As Double                                ' dclaring variables'
+        Dim dblSubTotal As Double
+        Dim dbltax As Double
+        Dim dbltotalCharges As Double
+
+        intNight = CInt(txtNight.Text)
+        dblNightlycharge = CDbl(txtNightlyCharge.Text)
+        dblRoomServiesCharge = CDbl(txtRoomServieses.Text)                                      ' = assigned the the variables to its text box ' 
+        dbltelephoneCharhe = CDbl(txtTele.Text)
+        dblMicsCharge = CDbl(txtMisc.Text)
+
+        dblRoomchrages = intNight * dblNightlycharge
+        dblAddChrages = dblRoomServiesCharge + dbltelephoneCharhe + dblMicsCharge                    ' the mathmeticall furmela you need '
+        dblSubTotal = dblRoomchrages + dblAddChrages
+        dbltax = Tax_Rate * dblSubTotal
+        dbltotalCharges = dblSubTotal + dbltax
+
+
+        lblRC.Text = dblRoomchrages.ToString("C")
+        lblAddCh.Text = dblAddChrages.ToString("C")
+        lblSubTot.Text = dblSubTotal.ToString("C")                                       ' labeling the result you want in labels '
+        lbltax.Text = dbltax.ToString("C")
+        lblGRT.Text = dbltotalCharges.ToString("C")
+
+    End Sub
+
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        txtNight.Clear()
+        txtMisc.Clear()
+        txtNightlyCharge.Clear()
+        txtRoomServieses.Clear()
+        txtTele.Clear()
+        lblAddCh.Text = ""
+        lblGRT.Text = ""
+        lblRC.Text = ""
+        lblSubTot.Text = ""
+        lbltax.Text = ""
+
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()                                                        ' this the way to exit an app ' 
+
+
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lab_Date.Text = DateTime.Now.ToString("D")
+
+        Lab_Time.Text = DateTime.Now.ToString("T")
+
+        MessageBox.Show("Welcom to Highlander Hotel")
+
+
+    End Sub
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        lab_time.Text = DateTime.Now.ToString("T")
+
+    End Sub
+End Class
